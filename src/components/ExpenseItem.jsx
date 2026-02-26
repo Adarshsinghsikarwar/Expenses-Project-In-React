@@ -1,4 +1,6 @@
-function ExpenseItem({ id, item, setExpenses }) {
+import { removeExpenses } from "../hooks/useExpenses";
+
+function ExpenseItem({ item, setExpenses }) {
   return (
     <div className="flex justify-between items-center bg-gray-50 border border-gray-200 p-3 rounded-lg">
       <div>
@@ -7,9 +9,7 @@ function ExpenseItem({ id, item, setExpenses }) {
       </div>
 
       <button
-        onClick={() =>
-          setExpenses((prev) => prev.filter((item) => item.id !== id))
-        }
+        onClick={() => setExpenses(removeExpenses(item.id))}
         className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm transition"
       >
         Delete

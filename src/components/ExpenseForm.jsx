@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { addExpenses } from "../hooks/useExpenses";
 function ExpenseForm({ setExpenses }) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -7,7 +7,7 @@ function ExpenseForm({ setExpenses }) {
     e.preventDefault();
     setTitle("");
     setPrice("");
-    setExpenses((prev) => [...prev, { title, price, id: Date.now() }]);
+    setExpenses(addExpenses(title, price));
   };
 
   return (
