@@ -1,13 +1,20 @@
 import { useState } from "react";
-import { addExpenses } from "../hooks/useExpenses";
-function ExpenseForm({ setExpenses }) {
+import { useExpenseContext } from "../context/ExpenseContext";
+
+function ExpenseForm() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
+
+  const { addExpense } = useExpenseContext();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!title.trim() || !price) return;
+
+    addExpense(title, Number(price));
+
     setTitle("");
     setPrice("");
-    setExpenses(addExpenses(title, price));
   };
 
   return (
