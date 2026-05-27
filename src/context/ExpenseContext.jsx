@@ -24,8 +24,6 @@ export function ExpenseProvider({ children }) {
   useEffect(() => {
     setData("expenses", state.expenses);
   }, [state.expenses]); 
-
-  
   
   const addExpense = (title, price) => {
     dispatch({
@@ -34,7 +32,6 @@ export function ExpenseProvider({ children }) {
     });
   };
 
-  
   const deleteExpense = (id) => {
     dispatch({ type: ACTIONS.DELETE, payload: id });
   };

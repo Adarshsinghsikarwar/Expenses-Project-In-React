@@ -38,7 +38,7 @@ function ExpenseForm() {
       <button
         type="submit"
         className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition"
-      >
+      > 
         Add Expense
       </button>
     </form>
